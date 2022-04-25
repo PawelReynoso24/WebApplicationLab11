@@ -22,7 +22,8 @@
             <asp:TextBox ID="TextBoxCarne" runat="server"></asp:TextBox>
         </p>
         <p>Notas:</p>
-        <p>Curso:&nbsp; <asp:TextBox ID="TextBoxCurso" runat="server"></asp:TextBox>
+        <p>Curso:&nbsp;
+            <asp:TextBox ID="TextBoxCurso" runat="server"></asp:TextBox>
         </p>
         <p>Punteo:&nbsp;
             <asp:TextBox ID="TextBoxPunteo" runat="server"></asp:TextBox>
@@ -33,7 +34,7 @@
             <asp:Button ID="ButtonAgregarUni" runat="server" OnClick="ButtonAgregarUni_Click" Text="Agregar Alumno a la Universidad" />
         </p>
         <p>
-            <asp:Button ID="ButtonAgregarUniconsusAlumnos" runat="server" Text="Agregar Universidad con sus Alumnos" Width="454px" />
+            <asp:Button ID="ButtonAgregarUniconsusAlumnos" runat="server" OnClick="ButtonAgregarUniconsusAlumnos_Click" Text="Agregar Universidad con sus Alumnos" Width="454px" />
         </p>
     </div>
 
