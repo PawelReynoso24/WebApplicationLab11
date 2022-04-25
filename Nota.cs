@@ -5,10 +5,9 @@ using System.Web;
 
 namespace WebApplicationLab11
 {
-    public class Alumno: Persona
+    public class Nota
     {
-        public string Carne { get; set; }
-
-        public List<Nota> Notas { get; set; }
+        public string Curso { get; set; }
+        public int Punteo { get; set; }
     }
 }
