@@ -9,7 +9,8 @@ namespace WebApplicationLab11
 {
     public partial class _Default : Page
     {
-        static public List<Nota> NotasTemp = new List<Nota>();
+        static List<Nota> NotasTemp = new List<Nota>();
+        static List<Alumno> AlumnoTemp = new List<Alumno>();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,6 +23,17 @@ namespace WebApplicationLab11
             nota.Punteo = Convert.ToInt16(TextBoxPunteo.Text);
 
             NotasTemp.Add(nota);
+        }
+
+        protected void ButtonAgregarUni_Click(object sender, EventArgs e)
+        {
+            Alumno alumno = new Alumno();
+            alumno.Carne = TextBoxCarne.Text;
+            alumno.Nombre = TextBoxNombre.Text;
+            alumno.Apellido = TextBoxApellido.Text;
+            alumno.Notas = NotasTemp.ToArray().ToList();
+
+            AlumnoTemp.Add(alumno);
         }
     }
 }
