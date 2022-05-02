@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,6 +16,25 @@ namespace WebApplicationLab11
         static List<Universidad> UniversidadTemp = new List<Universidad>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Se crea una lista con la misma estructura que tienen los datos en el archivo
+            //List<Dato> lista = new List<Dato>();
+
+            //El nombre del archivo a utilizar
+            string archivo = Server.MapPath("Datos.json");
+
+            //Se abre el archivo
+            StreamReader jsonStream = File.OpenText(archivo);
+
+            //Se Lee todo el contenido del archivo y el contenido leído se guarda en una variable cualquiera de tipo string.
+            //aquí no se necesitan ciclos pues el método ReadToEnd() lee todo el contenido de una sola vez.
+            string json = jsonStream.ReadToEnd();
+
+            //Se cierra el archivo
+            jsonStream.Close();
+
+            //Se deserializa (convierte) la cadena json guardada en la variable, en la estructura que tiene la lista a donde se van a cargar los datos
+            UniversidadTemp = JsonConvert.DeserializeObject<List<Universidad>>(json);
+
 
         }
 
@@ -60,6 +80,8 @@ namespace WebApplicationLab11
             universidad.Alumnos = AlumnoTemp.ToArray().ToList();
 
             UniversidadTemp.Add(universidad);
+
+            AlumnoTemp.Clear();
 
             Guardar();
         }
