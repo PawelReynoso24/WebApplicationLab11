@@ -60,7 +60,7 @@ namespace WebApplicationLab11
 
             foreach(var universidad in UniversidadTemp)
             {
-                AlumnoTemp = universidad.Alumnos;
+                //AlumnoTemp = universidad.Alumnos;
 
                 Alumno alumno = universidad.Alumnos.Find(c => c.Carne == carne);
 
